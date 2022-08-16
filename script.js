@@ -8,6 +8,7 @@ let symbols = document.querySelectorAll('[data-symbol]');
 
 input.value = 0;
 let currentValue = '';
+let operator;
 
 numbers.forEach(function(element){
     element.addEventListener('click',function(event){
@@ -34,13 +35,26 @@ symbols.forEach(function(sign){
             return;
         }
 
-        else if(sign.textContent == '+'){
-            if(currentValue){
+        else if(sign.textContent){
+            if((currentValue) && (operator == '+')){
                 input.value = Number(input.value) + Number(currentValue);
+            
+            }else if((currentValue) && (operator == '-')){
+                input.value = Number(currentValue) - Number(input.value);
+            
+            }else if((currentValue) && (operator == '*')){
+                input.value = Number(currentValue) * Number(input.value);
+            
+            }else if((currentValue) && (operator == '/')){
+                input.value = Number(currentValue) / Number(input.value);
+            
+            }else if((currentValue) && (operator == '%')){
+                input.value = Number(currentValue) % Number(input.value);
             }
         }
 
         sign.dataset.symbol =`${sign.textContent}`;
+        operator = sign.dataset.symbol;
         container.dataset.previousValue = input.value;
         currentValue = container.dataset.previousValue;
     })
