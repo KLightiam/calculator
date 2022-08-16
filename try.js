@@ -7,7 +7,7 @@ let symbols = document.querySelectorAll('[data-symbol]');
 
 
 input.value = 0;
-let currentValue = '';
+currentValue = '';
 
 numbers.forEach(function(element){
     element.addEventListener('click',function(event){
@@ -21,27 +21,21 @@ numbers.forEach(function(element){
             input.value += event.target.textContent;
         }
        
-        symbols.forEach(function(sign){
-            sign.dataset.symbol = "";
-        })
     })
 
 })
 
 symbols.forEach(function(sign){
     sign.addEventListener('click',function(event){
-        if(sign.dataset.symbol){
-            return;
-        }
-
-        else if(sign.textContent == '+'){
+        if(sign.textContent == '+'){
             if(currentValue){
                 input.value = Number(input.value) + Number(currentValue);
             }
         }
 
-        sign.dataset.symbol =`${sign.textContent}`;
+
         container.dataset.previousValue = input.value;
         currentValue = container.dataset.previousValue;
     })
 })
+
