@@ -21,7 +21,13 @@ numbers.forEach(function(element){
         }
 
         if(input.value == "0"){
-        input.value = event.target.textContent;
+            if(element.textContent == "+/-"){
+                input.value = '-';
+            }else{
+                input.value = event.target.textContent;
+            }
+        }else if(event.target.textContent == "+/-"){
+            return;
         }else{
             input.value += event.target.textContent;
         }
@@ -35,6 +41,13 @@ numbers.forEach(function(element){
 
 symbols.forEach(function(sign){
     sign.addEventListener('click',function(event){
+        if(sign.textContent == 'AC'){
+            input.value = '0';
+            container.dataset.previousValue = '';
+            currentValue = '';
+            return;
+        }
+
         if(sign.dataset.symbol){
             return;
         }
@@ -50,7 +63,11 @@ symbols.forEach(function(sign){
                 input.value = Number(currentValue) * Number(input.value);
             
             }else if((currentValue) && (operator == '/')){
+                if(input.value = '0'){
+                    input.value = "No Solution!"
+                }else{
                 input.value = Number(currentValue) / Number(input.value);
+                }
             
             }else if((currentValue) && (operator == '%')){
                 input.value = Number(currentValue) % Number(input.value);
@@ -65,5 +82,3 @@ symbols.forEach(function(sign){
 })
 
 
-let negation = document.querySelector('[data-negation]');
-console.log(negation);
