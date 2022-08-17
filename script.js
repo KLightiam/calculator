@@ -16,6 +16,10 @@ numbers.forEach(function(element){
             input.value = 0;
             container.dataset.previousValue = '';
         }
+        if((element.textContent == '.') && (input.value.includes('.'))){
+            return;
+        }
+
         if(input.value == "0"){
         input.value = event.target.textContent;
         }else{
@@ -59,3 +63,7 @@ symbols.forEach(function(sign){
         currentValue = container.dataset.previousValue;
     })
 })
+
+
+let negation = document.querySelector('[data-negation]');
+console.log(negation);
