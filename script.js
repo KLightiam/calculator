@@ -85,7 +85,7 @@ symbols.forEach(function(button){
     button.addEventListener('click',function(event){
         for(element of Array.from(symbols)){
             if(element == event.target){
-                element.style.opacity = '0.85';
+                element.style.opacity = '0.7';
             }
             else{
                 element.style.opacity = '1';
