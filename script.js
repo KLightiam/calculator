@@ -1,7 +1,7 @@
 let container = document.querySelector('.container');
 let input = document.querySelector('input');
 let buttons = document.querySelectorAll('button');
-let buttonsArr = Array.from(buttons);
+// let buttonsArr = Array.from(buttons);
 let numbers = document.querySelectorAll("[data-key]");
 let symbols = document.querySelectorAll('[data-symbol]');
 
@@ -63,7 +63,7 @@ symbols.forEach(function(sign){
                 input.value = Number(currentValue) * Number(input.value);
             
             }else if((currentValue) && (operator == '/')){
-                if(input.value = '0'){
+                if(input.value == '0'){
                     input.value = "No Solution!"
                 }else{
                 input.value = Number(currentValue) / Number(input.value);
@@ -81,4 +81,15 @@ symbols.forEach(function(sign){
     })
 })
 
-
+symbols.forEach(function(button){
+    button.addEventListener('click',function(event){
+        for(element of Array.from(symbols)){
+            if(element == event.target){
+                element.style.opacity = '0.85';
+            }
+            else{
+                element.style.opacity = '1';
+            }
+        }
+    })
+})

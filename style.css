@@ -71,7 +71,7 @@ button{
 .symbols-top{
     flex:auto;
     width:100%;
-    background-color: burlywood;
+    /* background-color: burlywood; */
     display:flex;
     height:20%
 }
@@ -84,4 +84,19 @@ button{
 .numbers-bottom button:last-child{
     width:33.33%;
     flex:auto;
+}
+
+
+.symbols-top > button{
+    background-color: rgb(53, 105, 105);
+    border: 1px solid;
+}
+
+.symbols-right > button{
+    background-color: rgb(136, 74, 29);
+}
+
+.num-sub > button{
+    background-color: rgb(34, 91, 140);
+    /* opacity: 0.8; */
 }
